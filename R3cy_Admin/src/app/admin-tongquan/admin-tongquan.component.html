@@ -1,0 +1,90 @@
+
+<div class="containerAll">
+    <h2>Tổng quan</h2>
+    <div class="containerTop">
+        <div class="containerLeft">
+            <!-- Doanh thu sản phẩm -->
+            <div class="Title">
+                <!-- <label for="dateRange">Chọn khoảng thời gian:</label> -->
+                <select id="dateRange" class="btn" [(ngModel)]="dateRange" (change)="onDateRangeChange()">
+                    <option value="all">Toàn bộ</option>
+                    <option value="today">Hôm nay</option>
+                    <option value="thisMonth">Tháng này</option>
+                    
+                </select>
+                <select id="channel" class="btn" [(ngModel)]="channel" (change)="onChannelChange()">
+                    <option value="Website">Website</option>
+                    <option value="Shopee">Shopee</option>
+                </select>
+            </div>
+            <hr  class="line--grey">
+            <table>
+                <tr>
+                    <td>Doanh thu thuần</td>
+                    <td>{{ data.totalAmount }}.000 đ</td>
+                </tr>
+                <tr>
+                    <td>Tổng số đơn hàng</td>
+                    <td>{{ data.totalOrders }}</td>
+                </tr>
+                <tr>
+                    <td>Số lượng sản phẩm đã bán</td>
+                    <td>{{ data.products?.totalQuantitySold }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Sản phẩm bán chạy nhất</p>
+                        <table>
+                            <tr *ngIf="data.products?.bestSellingProduct">
+                                <td rowspan="2"><img src="{{ data.products?.bestSellingProduct?.img1 }}" alt="" width="77px" height="77px"></td>
+                                <td> {{ data.products?.bestSellingProduct?.name | json }}</td>
+                               
+                            </tr>
+                            <tr><td> {{ data.products?.bestSellingProduct?.price | json }}.000 đ</td></tr>
+                        
+                        </table>
+                    </td>
+                    <td class="bestSellingProductquantity"> 
+                        <p> {{ data.products?.bestSellingProduct?.quantity | json }}</p> 
+                    </td>
+                   
+                </tr>
+
+                <tr class="viewDetailLine" >
+                    <td></td>
+                    <td><a href="" routerLink='/sanpham' routerLinkActive="active"  class="viewDetail">Xem chi tiết</a></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="containerBottom">
+        <!-- Trạng thái đơn hàng -->
+        <div class="dongtittle">
+            <h3>Trạng thái đơn hàng</h3>
+            
+        </div>
+        <table>
+            <tr>
+                <td>Đơn hàng chờ xử lí</td>
+                <td>{{ newOrdersCount }}</td>
+                <td class="viewDetail"><a href="" routerLink="/donhang/don-hang-moi" routerLinkActive="active">Xem chi tiết</a></td>
+              </tr>
+              <tr>
+                <td>Đơn hàng đang giao</td>
+                <td>{{ pendingOrdersCount }}</td>
+                <td class="viewDetail"><a href="" routerLink="/donhang/chua-nhan-hang" routerLinkActive="active">Xem chi tiết</a></td>
+              </tr>
+              <tr>
+                <td>Đơn hàng đã giao</td>
+                <td>{{ completedOrdersCount }}</td>
+                <td class="viewDetail"><a href="" routerLink="/donhang/da-giao" routerLinkActive="active">Xem chi tiết</a></td>
+              </tr>
+              <tr>
+                <td>Đơn hàng đã hủy</td>
+                <td>{{ cancelledOrdersCount }}</td>
+                <td class="viewDetail"><a href="" routerLink="/donhang/da-huy" routerLinkActive="active">Xem chi tiết</a></td>
+              </tr>
+        </table>
+    </div>
+</div>

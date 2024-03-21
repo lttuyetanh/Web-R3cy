@@ -1,0 +1,51 @@
+<div class="fullpage">
+
+    <div class="header">
+        <h3 class="h3 font-bold">Quản lý khách hàng</h3>
+    </div>
+
+    <div class="container">
+        <div class="container_item sub-header">
+
+            <div class="sort font-bold">
+                <label for="sortInput"><p>Hiển thị |</p><input type="text" id="sortInput" [(ngModel)]="sortColumn" (keyup.enter)="sortTable()" class="font-bold"></label>
+              </div>
+          
+              <div class="search">
+                <input type="text" placeholder="Tìm kiếm" [(ngModel)]="searchKeyword" (keyup.enter)="handleSearch()">
+              </div>
+        </div>
+
+        <div class="container_item">
+            <table *ngIf="displayedData.length > 0" >
+                <thead>
+                    <tr>
+                        <th *ngFor="let columnName of customColumnNames">{{ columnName }}</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of displayedData">
+                        <td>{{ item.Name }}</td>
+                        <td>{{ item.Mail }}</td>
+                        <td>{{ item.phonenumber }}</td>
+                        <!-- <td>{{ item.diachi[0].tendiachi}}</td> -->
+                        <td>
+                            <div *ngFor="let diaChi of item.addresses">
+                                <span>
+                                    <p>{{ diaChi?.country }}</p> 
+                                    <p>{{ diaChi?.postcodeZip }}</p>
+                                    <p>{{ diaChi?.province }}</p>
+                                    <p>{{ diaChi?.district }}</p>
+                                    <p>{{ diaChi?.addressDetail }}</p>
+                                </span>
+                            </div>
+                        </td>
+                        <td>{{ item.dob}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

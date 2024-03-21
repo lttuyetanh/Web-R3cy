@@ -1,0 +1,167 @@
+.imageThumBig {
+    width: 60vw;
+    height: auto;
+    text-align: center;
+  }
+  
+  .imageThumBig img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .imageThumbCircle {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 10px 10px;
+  }
+  
+  .bannerBlog img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .TitleTextAllPost {
+    color: var(--color-blue);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 24px 0px;
+  }
+  
+  .blog-card {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  .Left {
+    width: 60vw;
+    flex: 1;
+    margin-left: 20px;
+    align-self: flex-start;
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .Right {
+    width: 300px;
+    margin-left: 20px;
+    align-self: flex-start;
+    margin-right: 40px;
+  }
+  
+  .containerList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .listRelated {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-blue);
+    border-radius: 10px;
+    padding: 10px;
+    flex: 1;
+  }
+  
+  .listRelated img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .contnentBlog img {
+    width: 500px;
+    height: auto;
+    text-align: center;
+    max-width: 100%;
+}
+  .content-image  img{
+    text-align: center;
+    max-width: 60%;
+   
+  }
+  
+  .listRelated .TitleTextAllPost {
+    flex: 1;
+    align-self: center;
+  }
+  
+  /* Thêm media query cho màn hình di động */
+  @media (max-width: 767px) {
+    .Left{
+        flex:1
+    }
+    .Right {
+        width: 70%;
+      margin: auto;
+    }
+    .blog-card{
+      flex-direction: column;
+    } 
+  
+    .listRelated img {
+      width: 70px;
+      height: 70px;
+      margin-right: 0;
+    }
+    .TitleTextAllPost{
+        font-size: 16px;
+    }
+    .imageThumBig{
+        margin: 0 auto;
+    }
+
+    h3{
+      text-align: center;
+    }
+  }
+  @media (max-width: 480px) {
+    .Left,
+    .Right {
+      width: 70%;
+    margin: auto;
+  }
+
+  
+    .listRelated img {
+      width: 70px;
+      height: 70px;
+      margin-right: 0;
+    }
+
+    .TitleTextAllPost{
+        font-size: 16px;
+    }
+    .imageThumBig{
+        width: 100%;
+    }
+    .blog-card{
+      flex-direction: column;
+    } 
+
+    h3{
+      text-align: center;
+    }
+  }
+  /* Thêm media query cho màn hình tablet */
+@media (max-width: 1023px) {
+    .listRelated img {
+      width: 100px;
+      height: 100px;
+      margin-right: 0;
+    }
+    .TitleTextAllPost{
+        font-size: 20px;
+    }
+}
+.listRelated:hover{
+  cursor: pointer;
+}
+  

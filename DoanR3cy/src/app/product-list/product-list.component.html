@@ -1,0 +1,66 @@
+<div class="main">
+    <div class="firstinfo">
+        <h3 class="bigtitle">SẢN PHẨM</h3>
+        <p> 
+            Được thiết kế và sản xuất thủ công tại một xưởng ở Thành phố Hồ Chí Minh, R3cy mang trên mình câu chuyện đầy ý nghĩa với thành phố.  R3cy mong muốn tạo ra các vật dụng không chỉ bền chắc, đẹp mắt mà còn cùng bạn góp phần bảo vệ môi trường.
+        </p>
+    </div>
+    <br>
+    <div class="flexboxcontainer">
+        <div class="leftcolumn">
+            <h3 class="filtertitle">Bộ lọc &emsp;</h3>
+            <p class="note" (click)="clearStatus()">Xóa bộ lọc</p>
+
+            <p class="selecttitle">Loại sản phẩm</p>
+            <input type="checkbox" name="cate-opt1" value="phu-kien" id="cate-opt1" [(ngModel)]="isCateOpt1Checked" (change)="onCheckboxChange()"> Phụ kiện 
+            <br>
+            <input type="checkbox" name="cate-opt2" value="trang-tri" id="cate-opt2" [(ngModel)]="isCateOpt2Checked" (change)="onCheckboxChange()"> Trang trí
+            <br>
+            <input type="checkbox" name="cate-opt3" value="gia-dung" id="cate-opt3" [(ngModel)]="isCateOpt3Checked" (change)="onCheckboxChange()"> Gia dụng
+
+            <br><br>
+
+            <p class="selecttitle">Giá sản phẩm</p>
+            <input type="checkbox" name="price-opt1" value="duoi100" id="price-opt1" [(ngModel)]="isPriceOpt1Checked" (change)="onCheckboxChange()"> Dưới 100.000đ
+            <br>
+            <input type="checkbox" name="price-opt12" value="tu100den200" id="price-opt2" [(ngModel)]="isPriceOpt2Checked" (change)="onCheckboxChange()"> Từ 100.000đ đến 200.000đ
+            <br>
+            <input type="checkbox" name="price-opt3" value="tu200den300" id="price-opt3" [(ngModel)]="isPriceOpt3Checked" (change)="onCheckboxChange()"> Từ 200.000đ đến 300.000đ
+            <br>
+            <input type="checkbox" name="price-opt4" value="tren300" id="price-opt4" [(ngModel)]="isPriceOpt4Checked" (change)="onCheckboxChange()"> Trên 300.000
+            
+        </div>
+
+        <div class="rightcolumn">
+            <!-- <div class="floatright">
+                <select style="float: right;" name="" id="sort" aria-placeholder="Bộ lọc">
+                    <option value="pho-bien">Lọc theo Phổ biến</option>
+                    <option value="gia">Lọc theo Giá</option>
+                </select>
+                <br>
+                <p style="float: right;">Đang hiển thị 00 sản phẩm</p>
+            </div> -->
+            <!-- <br><br><br><br><br><br> -->
+            <div class="product-show" *ngFor="let p of product" [routerLink]="['/product', p._id]">
+                    <!-- <p class="mainimg">{{p.img1}}</p> -->
+                    <img [src]="p.img1">
+                    <p class="name">{{p.name}}</p>
+                    <div class="pricecontainer">
+                        <p class="price">{{p.price}}.000đ</p>
+                        <p class="oldprice">{{p.oldprice}}.000đ</p>
+                    </div>  
+                    <!-- <button [productname]="p.name" ></button> -->
+                
+        </div>
+    </div>
+
+    
+</div>
+
+<div class="customize">
+    <h3>Bạn muốn tùy chỉnh sản phẩm?</h3>
+    <p>Liên hệ ngay với R3cy nào!</p>
+    <button type="button" class="custom-contact" routerLink="/custom-product" routerLinkActive="active">GỬI YÊU CẦU</button>
+</div>
+
+

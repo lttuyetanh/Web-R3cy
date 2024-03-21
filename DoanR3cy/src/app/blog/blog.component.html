@@ -1,0 +1,28 @@
+
+<div class="containerBlogPage">
+    <div class="bannerBlog">
+        <!-- Dành cho banner -->
+        <img src="../../assets/img/ImageForBlog/banner.jpg" alt="Banner Blog" >
+    </div>
+    <div class="TitleTextAllPost">
+        <h2>TẤT CẢ BÀI VIẾT</h2>
+    </div>
+    <div class="containerBlogList">
+        <div *ngFor="let blog of blogs" class="container1blog">
+          <div class="blog-card">
+            <div class="imageThumnailOnBlogList" (click)="viewBlogDetail(blog._id)">
+              <div class="image"> <img [src]="'http://localhost:3000/image/' + blog.thumbnail" alt="{{ blog.title }}" /></div>
+
+              
+            </div>
+            <div class="sumary1Blog">
+              <h4 class="title1Blog" (click)="viewBlogDetail(blog._id)">{{ blog.title }}</h4>
+              <!-- <p class="paraOfContent" [innerHTML]="blog.content"></p> -->
+              <p class="paraOfContent" [innerHTML]="getSummary(blog.content)"></p>
+              <p class="authorDate">Tác giả: {{ blog.author }}</p>
+              <p class="authorDate">Ngày: {{ blog.date | date: 'medium' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

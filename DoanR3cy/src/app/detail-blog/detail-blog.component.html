@@ -1,0 +1,47 @@
+<div class="containerAll">
+    <div class="bannerBlog">
+       <!-- Dành cho banner -->
+       <img src="../../assets/img/ImageForBlog/banner.jpg" alt="Banner Blog" > 
+    </div>
+
+    <div class="containerAfter">
+        <!-- phần bên dưới, bao gồm thumnail, nội dung bài viết, các bài viết còn lại -->
+        <div *ngIf="blog" class="blog-card">
+            <div class="Left">
+                <!-- thumbnail, tiêu đề và nội dung bài viết -->
+                <div class="TitleTextAllPost">
+                    <h3>{{blog.title}}</h3>
+                </div>
+                
+                <div class="thumbnail">
+                    <div class="imageThumBig"> <img [src]="'http://localhost:3000/image/' + blog.thumbnail"   alt="{{ blog.title }}" /> <!-- Hiển thị ảnh --></div>
+                </div>
+
+                <div [innerHTML]="blog.content" class="contnentBlog"></div>
+
+            </div>
+
+            <div class="Right">
+                <!-- các bài viết còn lại -->
+                <div class="TitleTextAllPost">
+                    <h3>BÀI VIẾT MỚI NHẤT</h3>
+                </div>
+                  <div class="containerList">
+                    <div *ngFor="let relatedBlog of relatedBlogs" class="listRelated" >
+                      <div (click)="viewRelatedBlogDetails(relatedBlog._id)"> <img [src]="'http://localhost:3000/image/' + relatedBlog.thumbnail" class="imageThumbCircle" alt="{{ relatedBlog.title }}" /> 
+                      <div class="TitleTextAllPost">
+                        {{ relatedBlog.title }}
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                
+                
+            </div>
+            
+
+
+
+        </div>  
+    </div>
+</div>
